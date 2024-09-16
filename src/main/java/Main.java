@@ -12,6 +12,7 @@
  * fileBuilder: WebScrapper, data normalizer. Obtain data from classNav and throw it into a CSV file
  * Classes: Std class templates for i/o reading (java class of a school class for ease of data reading
  *
+ * Eventually should return JSON format of all possible classes, from there can prettify somehow...
  */
 public class Main {
     public static void main(String[] args) {
