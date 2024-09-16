@@ -7,9 +7,15 @@
  * - Document by naming your methods/variables well
  * - Use javadoc comments to explain non-trivial methods, or just how they work
  *
+ * Code layout (packages):
+ * AlgoSorter: usr inp, and final output data. Will have atleast 2 classes: one to output all classes usr inp, & another 2 deal with given data.
+ * fileBuilder: WebScrapper, data normalizer. Obtain data from classNav and throw it into a CSV file
+ * Classes: Std class templates for i/o reading (java class of a school class for ease of data reading
+ *
  */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
 }
+
