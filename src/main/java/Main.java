@@ -1,5 +1,6 @@
 /**
  * Ground rules for random stuff:
+ * - NEVER REBASE (ask for permission, likely I'll say no)
  * - Maximum 3 layers of abstraction!!! (VERY IMPT) If you have a reason to go deeper pls contact me (@Arika)
  * - KISS Principles (Keep it simple, stupid)
  * - Only use GPT if you're not going to create a lot of trash very quickly.
