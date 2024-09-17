@@ -6,6 +6,27 @@ with the current classNav forcing students to find all the class timings manuall
 schedule from there leading to a much smoother signup process for students and thus resulting
 in slightly reduced workloads for academic advisors.
 
+# How it works:
+Each `class` object is stored as below, where each avaliable Course is pulled up. After calling all COURSES, the program will return all possible permutations of all courses, and you can pick which one fits your schedule best.  
+`MeetingDates,MeetingTimes,MeetingDays,Location,Crn,Subject,Course,Section,SectionTitle,Instructor,Seats,Waitlist`
+OR 
+```json
+  {
+    "MeetingDates": "value1",
+    "MeetingTimes": "value2",
+    "MeetingDays": "value3",
+    "Location": "value4",
+    "Crn": "value5",
+    "Subject": "value6",
+    "Course": "value7",
+    "Section": "value8",
+    "SectionTitle": "value9",
+    "Instructor": "value10",
+    "Seats": "value11",
+    "Waitlist": "value12"
+  },
+
+```
 
 ## Dependencies:
 - [me.xdrop:fuzzywuzzy](https://github.com/xdrop/fuzzywuzzy) for fuzzy search.
