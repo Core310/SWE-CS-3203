@@ -6,7 +6,7 @@ with the current classNav forcing students to find all the class timings manuall
 schedule from there leading to a much smoother signup process for students and thus resulting
 in slightly reduced workloads for academic advisors.
 
-# How it works:
+## How it works:
 Each `class` object is stored as below, where each avaliable Course is pulled up. After calling all COURSES, the program will return all possible permutations of all courses, and you can pick which one fits your schedule best.  
 `MeetingDates,MeetingTimes,MeetingDays,Location,Crn,Subject,Course,Section,SectionTitle,Instructor,Seats,Waitlist`
 OR 
@@ -28,20 +28,28 @@ OR
 
 ```
 
+# Development & Contribution:
+Thank you for your interest in contributing to this project! Sadly, we are not accepting any right now without good reason. Please create an issue for us to review and we will get back to you on PR approval.
+
+<!-- Contributing is greatly appreciated!  Simply create a fork and propose your merges. Kidnly indicate if there are new dependencies added to your branch, and make small objective focused PRs. If you are creating a large refactor, please contact me and I will list it under updated forked projects.  -->
+
 ## Dependencies:
 - [me.xdrop:fuzzywuzzy GPL-2](https://github.com/xdrop/fuzzywuzzy) for fuzzy search.
 - [jsoup MIT](https://jsoup.org/) for web scrapping.
 - [junit EPL-2](https://github.com/junit-team/junit5) for testing.
 
-## Development:
-Contributing is greatly appreciated! Simply create a fork and propose your merges. Kidnly indicate if there are new dependencies added to your branch, 
-and make small objective focused PRs. 
-If you are creating a large refactor, please contact me and I will list it under updated forked projects. 
+
+## Preferred Styling & Branch Rules
+- [Use .NET Framework Design Guideline](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/)
+- No more than 3 layers of abstraction 
+- Only rebase with permission
+- Document methods using javaDoc for ease of viewing
+- Please please name your variables well
+- Ask before performing more than 4 layers of abstraction
+
 
 ## Todos: 
 - Localization?
 - Host on website?
-
-
-# License
-- BetterClassNav is under Mozilla Public License 2.0 (MPL-2.0) which permits integration with other code including commercial and closed source code
+- Setup CD/CI 
+- Set tests
