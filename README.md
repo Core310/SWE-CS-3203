@@ -29,9 +29,9 @@ OR
 ```
 
 ## Dependencies:
-- [me.xdrop:fuzzywuzzy](https://github.com/xdrop/fuzzywuzzy) for fuzzy search.
-- [jsoup](https://jsoup.org/) for web scrapping.
-- [junit](https://github.com/junit-team/junit5) for testing.
+- [me.xdrop:fuzzywuzzy GPL-2](https://github.com/xdrop/fuzzywuzzy) for fuzzy search.
+- [jsoup MIT](https://jsoup.org/) for web scrapping.
+- [junit EPL-2](https://github.com/junit-team/junit5) for testing.
 
 ## Development:
 Contributing is greatly appreciated! Simply create a fork and propose your merges. Kidnly indicate if there are new dependencies added to your branch, 
@@ -41,4 +41,7 @@ If you are creating a large refactor, please contact me and I will list it under
 ## Todos: 
 - Localization?
 - Host on website?
-- 
+
+
+# License
+- BetterClassNav is under Mozilla Public License 2.0 (MPL-2.0) which permits integration with other code including commercial and closed source code
