@@ -66,6 +66,15 @@
 
     <build>
         <plugins>
+         <plugin>
+    <groupId>com.github.hazendaz.maven</groupId>
+    <artifactId>coveralls-maven-plugin</artifactId>
+    <version>4.5.0-M2</version>
+    <configuration>
+        <repoToken>yourcoverallsprojectrepositorytoken</repoToken>
+    </configuration>
+         </plugin>
+                 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
