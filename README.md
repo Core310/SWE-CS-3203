@@ -29,8 +29,11 @@ OR
 ```
 
 # Development & Contribution:
-Thank you for your interest in contributing to this project! Sadly, we are not accepting any right now without good reason. Please create an issue for us to review and we will get back to you on PR approval.
+For those approved to contribute, per PAIR, create a new branch named after the feature being implemented (eg. branch name = "webscrapping").
+After you're done, send in a PR with what you have done and I'll approve it or tell you what needs to be done. 
 
+
+Thank you for your interest in contributing to this project! Sadly, we are not accepting any right now without good reason. Please create an issue for us to review and we will get back to you on PR approval.
 <!-- Contributing is greatly appreciated!  Simply create a fork and propose your merges. Kidnly indicate if there are new dependencies added to your branch, and make small objective focused PRs. If you are creating a large refactor, please contact me and I will list it under updated forked projects.  -->
 
 ## Dependencies:
