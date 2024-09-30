@@ -12,6 +12,7 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        standard_sch_class sch = new standard_sch_class("a","a","a","a","a","a","a","a","a","a","a","a");
     }
 }
 

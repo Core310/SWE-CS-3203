@@ -10,6 +10,9 @@ import java.util.ArrayList;
 public class QueryIndexer {
     @lombok.Getter
     ArrayList<String> usr_query;
+
+
+
     public QueryIndexer(ArrayList al) {
         al = usr_query;
     }
