@@ -8,17 +8,11 @@ import java.util.ArrayList;
  * return Arraylist<Arraylist<classes>>, where classes may be string s
  */
 public class QueryIndexer {
+    @lombok.Getter
     ArrayList<String> usr_query;
     public QueryIndexer(ArrayList al) {
         al = usr_query;
     }
 
 
-    /**
-     * Do NOT create a setter for usr_query (w/o good reason)
-     * @return @{@link #usr_query}
-     */
-    public ArrayList<String> getUsr_query() {
-        return usr_query;
-    }
 }

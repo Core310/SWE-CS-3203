@@ -40,6 +40,7 @@ Thank you for your interest in contributing to this project! Sadly, we are not a
 - [me.xdrop:fuzzywuzzy GPL-2](https://github.com/xdrop/fuzzywuzzy) for fuzzy search.
 - [jsoup MIT](https://jsoup.org/) for web scrapping.
 - [junit EPL-2](https://github.com/junit-team/junit5) for testing.
+- [projectlombok](https://projectlombok.org/setup/maven)
 
 
 ## Preferred Styling & Branch Rules
