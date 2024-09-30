@@ -5,6 +5,7 @@ package AlgoSorter;
  */
 public class QueryGrouper {
     public QueryGrouper() {
+        // First step is to get all sections of each of the classes
 
     }
 }
