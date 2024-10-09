@@ -1,6 +1,7 @@
 # Testing & CD/CI me~
 # WebScrapping Masiko? 
-- Use python lib for webscrapping into a CSV file, then fully webscrap all pages of FALL and SPRING into a DB
+- Use python lib for webscrapping into a CSV file, then fully webscrap all pages of FALL and SPRING into a DB.
+- Implement java method to use fuzzy search on the SQL DB and return all the objects related to it. 
 - Make it easy to select what year (FALL 2024 etc) when scrapping so the program can be easily updated.
 # Front End Terriauna & Daniela 
 - Research Vite, Bun JS, Bootstrap, springboot, and thymeleaf. 
@@ -8,7 +9,6 @@
 - Connect to a backend component using springboot (assume a method will take in the user query and output what's required)
 # Algo Luke & Emmy?
 - Base your work off the std_sch_class object (the one with a constructor with a ton of arguments), assume each object you're w- orking with will be that exact object
-- Use fuzzywuzzy for user queries fuzzy search
 
 ___
 # About
