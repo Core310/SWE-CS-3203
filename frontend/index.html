@@ -4,33 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BetterClassNav</title>
+  <!-- Link to Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Add custom styles here if needed */
-  </style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container mt-5">
     <h2>BetterClassNav</h2>
+    <!-- Search form -->
     <form id="courseSearchForm">
       <div class="form-row">
+        <!-- Input field for class ID or name -->
         <div class="col-md-6">
           <input type="text" class="form-control" id="classId" placeholder="Enter Class ID or Name" required>
         </div>
+        <!-- Dropdown for selecting semester -->
         <div class="col-md-3">
           <select class="form-control" id="semesterYear" required>
             <option value="Fall 2024">Fall 2024</option>
-            <option value="Spring 2024">Spring 2024</option>
+            <option value="Spring 2025">Spring 2025</option>
+            <option value="Summer 2025">Summer 2025</option>
+            <option value="Fall 2025">Fall 2025</option>
             <!-- Add more options as necessary -->
           </select>
         </div>
+        <!-- Search button -->
         <div class="col-md-3">
           <button type="submit" class="btn btn-primary w-100">Search</button>
         </div>
       </div>
     </form>
 
-    <!-- Results Table -->
+    <!-- Table to display results -->
     <table class="table table-striped mt-5" id="resultsTable">
       <thead>
         <tr>
@@ -47,38 +53,9 @@
     </table>
   </div>
 
+  <!-- Include Bootstrap and external JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Add JavaScript to interact with the backend (Spring Boot)
-
-    // Example for form submission and result handling
-    document.getElementById('courseSearchForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const classId = document.getElementById('classId').value;
-      const semesterYear = document.getElementById('semesterYear').value;
-
-      // Make an API request to the Spring Boot backend
-      fetch(`/api/search?classId=${classId}&semesterYear=${semesterYear}`)
-        .then(response => response.json())
-        .then(data => {
-          const tbody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
-          tbody.innerHTML = ''; // Clear previous results
-
-          data.forEach(course => {
-            const row = tbody.insertRow();
-            row.insertCell(0).textContent = course.Course;
-            row.insertCell(1).textContent = course.Section;
-            row.insertCell(2).textContent = course.Instructor;
-            row.insertCell(3).textContent = course.Seats;
-            row.insertCell(4).textContent = course.Waitlist;
-          });
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
