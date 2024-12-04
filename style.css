@@ -1,0 +1,23 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background for a clean look */
+    color: #333; /* Dark gray text for readability */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container styling */
+  .container {
+    max-width: 800px; /* Limit the width of the main container */
+  }
+  
+  /* Table styling */
+  table th {
+    text-align: left; /* Align table headers to the left */
+  }
+  
+  table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+  }
+  
