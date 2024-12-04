@@ -1,11 +1,13 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light gray background for a clean look */
-    color: #333; /* Dark gray text for readability */
     margin: 0;
     padding: 0;
-  }
+    position: relative; /* Ensures proper positioning for the pseudo-element */
+    height: 100vh; /* Ensures the body fills the viewport */
+    overflow: hidden; /* Prevents scrollbars if the image overflows */
+}
+
   
   /* Container styling */
   .container {
@@ -20,4 +22,106 @@ body {
   table tbody tr:hover {
     background-color: #f1f1f1; /* Highlight row on hover */
   }
+
+  button[type="submit"] {
+    background-color:crimson;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  button[id="generateScheduleBtn"] {
+    background-color:crimson;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button[type="submit"]:hover {
+    background-color:black;
+  }
+
+  button[id="generateScheduleBtn"]:hover {
+    background-color: black;
+  }
+/* Style for the title container */
+.title-container {
+    position: relative; /* Makes the title-container the reference point for absolute positioning */
+    text-align: center; /* Centers the title horizontally */
+    border-top: 30px solid crimson; /* Adds the red border at the top */
+    /*padding-top: 30px; /* Adds space above the border for the title */
+    margin-bottom: 70px; /* Adds space below the container */
+  }
+  
+  /* Style for the title */
+  .title-container h2 {
+    position: absolute; /* Positions the title above the border */
+    top: 10px; /* Adjusts the title to sit on the red border (use a negative value) */
+    left: 50%; /* Centers the title horizontally */
+    transform: translateX(-50%); /* Fine-tunes the centering of the title */
+    font-size: 2rem; /* Adjust font size */
+    color: black; /* Title color */
+    /*background-color: #f8f9fa; /* Makes the background white to cover the border behind it */
+    padding: 0 10px; /* Optional: Adds space around the title */
+    z-index: 1; /* Ensures the title appears above the border */
+  }
+
+  /* Styling for the schedule table */
+#scheduleTable {
+  text-align: center;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+/* Table cell padding and hover effect */
+#scheduleTable th, #scheduleTable td {
+  padding: 10px;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+}
+
+/* Highlight cell on hover */
+#scheduleTable tbody tr td:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+/* Styling tooltips for class details */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Make tooltip visible on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
   

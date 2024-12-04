@@ -67,4 +67,63 @@ document.getElementById('courseSearchForm').addEventListener('submit', function(
         console.error('Error:', error); // Log the error to the console for debugging
     }
   });
+
+  // Event listener for generating the schedule when the button is clicked
+document.getElementById("generateScheduleBtn").addEventListener("click", function() {
+  // Get user input and sanitize it
+  const classInput = document.getElementById("classInput").value.trim();
+  if (!classInput) {
+      alert("Please enter at least one class.");
+      return;
+  }
+
+  const classes = classInput.split(",").map(c => c.trim()).filter(c => c.length > 0);
+  if (classes.length === 0) {
+      alert("No valid classes found in the input.");
+      return;
+  }
+
+  // Clear existing schedule
+  const scheduleTableBody = document.getElementById("scheduleTable").querySelector("tbody");
+  scheduleTableBody.innerHTML = "";
+
+  // Example data - Replace with actual logic to fetch schedule
+  const mockSchedule = [
+      { day: "Monday", time: "9:00 AM", class: "CS101", instructor: "Dr. Smith", courseNumber: "101", section: "A", dates: "Jan-May" },
+      { day: "Wednesday", time: "9:00 AM", class: "CS101", instructor: "Dr. Smith", courseNumber: "101", section: "A", dates: "Jan-May" },
+      { day: "Friday", time: "9:00 AM", class: "CS101", instructor: "Dr. Smith", courseNumber: "101", section: "A", dates: "Jan-May" },
+  ];
+
+  // Generate schedule rows
+  mockSchedule.forEach(entry => {
+      let row = scheduleTableBody.querySelector(`tr[data-time="${entry.time}"]`);
+      if (!row) {
+          row = document.createElement("tr");
+          row.dataset.time = entry.time;
+
+          // Create time cell
+          const timeCell = document.createElement("td");
+          timeCell.textContent = entry.time;
+          row.appendChild(timeCell);
+
+          // Create empty cells for each day
+          for (let i = 0; i < 5; i++) {
+              const dayCell = document.createElement("td");
+              dayCell.dataset.day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"][i];
+              row.appendChild(dayCell);
+          }
+          scheduleTableBody.appendChild(row);
+      }
+
+      const cell = row.querySelector(`td[data-day="${entry.day}"]`);
+      if (cell) {
+          // Add tooltip with class details
+          cell.innerHTML = `<div class="tooltip">${entry.class}<span class="tooltiptext">
+              Instructor: ${entry.instructor}<br>
+              Course #: ${entry.courseNumber}<br>
+              Section: ${entry.section}<br>
+              Dates: ${entry.dates}</span></div>`;
+      }
+  });
+});
   
