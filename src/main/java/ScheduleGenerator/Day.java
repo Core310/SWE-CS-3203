@@ -14,7 +14,7 @@ public class Day {
     public boolean addEvent(Event event) {
         // Check if the event overlaps with any existing events
         for (Event existingEvent : events) {
-            if (event.getStartTime() < existingEvent.getEndTime() && event.getEndTime() > existingEvent.getStartTime()) {
+            if (event.getStartTime() <= existingEvent.getEndTime() && event.getEndTime() >= existingEvent.getStartTime()) {
                 return false;
             }
         }

@@ -1,9 +1,11 @@
 package ScheduleGenerator;
 
-import Scraper.Course;
+import Scraper.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 
 /**
@@ -18,74 +20,87 @@ public class ScheduleGenerator {
      * @return
      */
     public static ArrayList<Schedule> generateSchedules(ArrayList<Course> courses) {
-        // Generate all possible permutations of the courses
-        System.out.println("Generating combinations...");
-        ArrayList<ArrayList<Integer>> combinations = getPermutations(courses.size());
-        int combinationsSize = combinations.size();
-        int increment = combinationsSize / 10;
-        System.out.println(combinationsSize + " combinations generated.");
+        // First check if there are any conflicts by adding all courses to a schedule
+        Schedule schedule = new Schedule();
+        for (Course course : courses) {
+            schedule.addCourse(course);
+        }
+        // If there were no conflicts, return the schedule
+        if (schedule.getNumCourses() == courses.size()) {
+            schedule.arrangeEvents();
+            ArrayList<Schedule> schedules = new ArrayList<>();
+            schedules.add(schedule);
+            return schedules;
+        }
+
+        // Find the conflicts, and add each pair of conflicting courses to a list
+        System.out.println("Checking for conflicts...");
+        ArrayList<Course[]> conflicts = new ArrayList<>();
+        Schedule temp;
+        for (int i = 0; i < courses.size(); i++) {
+            Course c1 = courses.get(i);
+            temp = new Schedule();
+            temp.addCourse(c1);
+            for (int j = 0; j < courses.size(); j++) {
+                Course c2 = courses.get(j);
+                if (c1 == c2) { continue; }
+                // Get meeting info for each course
+                MeetingInfo meetingInfo1 = c1.getMeetingInfos().get(0);
+                MeetingInfo meetingInfo2 = c2.getMeetingInfos().get(0);
+                String days1 = meetingInfo1.getDays();
+                String days2 = meetingInfo2.getDays();
+                String times1 = meetingInfo1.getTimes();
+                String times2 = meetingInfo2.getTimes();
+
+                // If times overlap and days are the same, there is a conflict
+                if (times1.equals(times2)) {
+                    for (int k = 0; k < days1.length(); k++) {
+                        if (days2.contains(Character.toString(days1.charAt(k)))) {
+                            conflicts.add(new Course[]{c1, c2});
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(conflicts.size() + " conflict(s) found.");
         System.out.println();
 
+        // Remove duplicates from the conflicts list
+        System.out.println("Removing duplicates...");
+        for (Iterator<Course[]> iterator = conflicts.iterator(); iterator.hasNext(); ) {
+            Course[] conflict = iterator.next();
+            Course c1 = conflict[0];
+            Course c2 = conflict[1];
+        
+            for (Course[] otherConflict : conflicts) {
+                if (otherConflict[0] == c2 && otherConflict[1] == c1) {
+                    iterator.remove();
+                    break;
+                }
+            }
+        }
+        System.out.println(conflicts.size() + " conflict(s) found.");
+        System.out.println();
+
+        // For each pair of conflicting courses, generate a schedule with only one of the courses
         System.out.println("Generating schedules...");
-        int maxCourses = 0;
-        int counter = 0;
         ArrayList<Schedule> schedules = new ArrayList<>();
-        for (ArrayList<Integer> combination : combinations) {
-            counter++;
-            if (counter % increment == 0) {
-                System.out.println((counter / increment) * 10 + "% complete.");
-            }
-            Schedule schedule = new Schedule();
-            // Use combinations as pointers to the courses list
-            for (int i : combination) {
-                schedule.addCourse(courses.get(i));
-            }
-            if (schedule.getNumCourses() > maxCourses) {
-                maxCourses = schedule.getNumCourses();
-            }
-            // Remove the schedule if it has fewer courses than the current max as we go
-            if (schedule.getNumCourses() < maxCourses) {
-                continue;
-            }
-            schedules.add(schedule);
-        }
-        // Removing schedules with fewer courses than the final max
-        for (Schedule schedule : schedules) {
-            if (schedule.getNumCourses() < maxCourses) {
-                schedules.remove(schedule);
+        for (Course[] conflict : conflicts) {
+            for (Course skip : conflict) {
+                schedule = new Schedule();
+                for (Course course : courses) {
+                    if (course != skip) {
+                        schedule.addCourse(course);
+                    }
+                }
+                schedule.arrangeEvents();
+                schedules.add(schedule);
             }
         }
+        System.out.println(schedules.size() + " schedules generated.");
         System.out.println();
         return schedules;
-    }
-
-
-    /**
-     * Generates all permutations of integers from 1 to size
-     * @param size
-     * @return
-     */
-    public static ArrayList<ArrayList<Integer>> getPermutations(int size) {
-        ArrayList<Integer> nums = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            nums.add(i);
-        }
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        backtrack(result, new ArrayList<>(), nums);
-        return result;
-    }
-    private static void backtrack(List<ArrayList<Integer>> result, ArrayList<Integer> temp, ArrayList<Integer> nums) {
-        if (temp.size() == nums.size()) {
-            result.add(new ArrayList<>(temp)); // Add a copy of the current permutation
-            return;
-        }
-
-        for (int i = 0; i < nums.size(); i++) {
-            if (temp.contains(nums.get(i))) continue; // Skip already used elements
-            temp.add(nums.get(i));
-            backtrack(result, temp, nums);
-            temp.remove(temp.size() - 1); // Backtrack
-        }
     }
     
 }

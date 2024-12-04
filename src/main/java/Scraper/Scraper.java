@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,19 +17,18 @@ public class Scraper {
 
     // Initialize the Scraper with a URL
     public Scraper(String URL) {
-        // Set the path to the chromedriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
-        driver = new ChromeDriver();
+        new Scraper();
         this.URL = URL;
-        driver.get(URL);
-        System.out.println();
     }
 
     // Initialize the Scraper with a default URL (OU ClassNav Fall 2024)
     public Scraper() {
         // Set the path to the chromedriver executable
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--disable-gpu");
+        driver = new ChromeDriver(options);
         this.URL = "https://classnav.ou.edu/#semester/202410";
         driver.get(URL);
         System.out.println();

@@ -96,6 +96,15 @@ public class Schedule {
         return true;
     }
 
+    public void removeCourse(Course course) {
+        Event event = new Event(course);
+        monday.removeEvent(event);
+        tuesday.removeEvent(event);
+        wednesday.removeEvent(event);
+        thursday.removeEvent(event);
+        friday.removeEvent(event);
+        other.removeEvent(event);
+    }
     /**
      * Arranges the events in each day in order of start time
      */
