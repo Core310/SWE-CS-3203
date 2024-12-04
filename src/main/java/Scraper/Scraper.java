@@ -24,7 +24,7 @@ public class Scraper {
     // Initialize the Scraper with a default URL (OU ClassNav Fall 2024)
     public Scraper() {
         // Set the path to the chromedriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--disable-gpu");
